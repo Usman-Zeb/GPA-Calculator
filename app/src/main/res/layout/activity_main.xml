@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/gpacalculatorheading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gpa_calculator"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_course_btn"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_course"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gpacalculatorheading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/course_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/calcbtn"
+        android:layout_below="@id/add_course_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+         />
+    <Button
+        android:id="@+id/calcbtn"
+        android:layout_width="match_parent"
+        android:text="@string/calculate"
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        />
+
+</RelativeLayout>
