@@ -6,4 +6,19 @@
     <string name="gpa_calculator">GPA Calculator</string>
     <string name="add_course">Add Course</string>
     <string name="calculate">Calculate</string>
+    
+    <string-array name="grades_list">
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>F</item>
+    </string-array>
 </resources>

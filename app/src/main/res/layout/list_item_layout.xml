@@ -30,26 +30,30 @@
              />
     </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/grade"
-            android:layout_weight="0.25"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
 
-            android:layout_height="match_parent">
+        android:layout_weight="0.25"
+        android:maxWidth="50dp"
+        android:minWidth="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:hint="@string/grade"
+        android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/grade_received_editText"
-                android:inputType="textCapCharacters"
-                android:gravity="center"
-                android:maxLength="2"
-                 />
+        <AutoCompleteTextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/grade_drop_down"
+            android:inputType="none"
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"

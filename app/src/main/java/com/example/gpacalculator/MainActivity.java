@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -57,8 +58,9 @@ public class MainActivity extends AppCompatActivity implements ListAdapter.OnLis
                 {
                     View myview = recyclerView.getChildAt(i);
                     EditText course = (EditText) myview.findViewById(R.id.course_name_editText);
-                    EditText grade = (EditText) myview.findViewById(R.id.grade_received_editText);
+                    AutoCompleteTextView grade = (AutoCompleteTextView) myview.findViewById(R.id.grade_drop_down);
                     EditText credit = (EditText) myview.findViewById(R.id.credit_hours_editText);
+
 
                     String course_name = course.getText().toString();
                     String grade_received = grade.getText().toString();
@@ -154,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements ListAdapter.OnLis
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             listAdapter.remove_course(1);
             EditText course = viewHolder.itemView.findViewById(R.id.course_name_editText);
-            EditText grade = viewHolder.itemView.findViewById(R.id.grade_received_editText);
+            AutoCompleteTextView grade = viewHolder.itemView.findViewById(R.id.grade_drop_down);
             EditText credit = viewHolder.itemView.findViewById(R.id.credit_hours_editText);
             course.setText("");
             grade.setText("");

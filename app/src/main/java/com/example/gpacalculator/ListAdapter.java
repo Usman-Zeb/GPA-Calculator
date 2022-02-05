@@ -3,6 +3,8 @@ package com.example.gpacalculator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -55,7 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         Button course_delete_btn;
         EditText course_name;
         EditText credit_hours;
-        EditText grade_received;
+        AutoCompleteTextView grade_received;
         OnListListener onListListener;
         public ListViewHolder(@NonNull View itemView, OnListListener onListListener) {
 
@@ -63,7 +65,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
             course_name = itemView.findViewById(R.id.course_name_editText);
             credit_hours = itemView.findViewById(R.id.credit_hours_editText);
-            grade_received = itemView.findViewById(R.id.grade_received_editText);
+
+            String[] type = new String[] {"A", "A-", "B+", "B","B-", "C+","C","C-","D+","D","F"};
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(itemView.getContext(), R.layout.grades_drop_down_layout, type);
+            grade_received = itemView.findViewById(R.id.grade_drop_down);
+            grade_received.setAdapter(adapter);
             //course_delete_btn = itemView.findViewById(R.id.course_delete_btn);
             this.onListListener = onListListener;
             itemView.setOnLongClickListener(this);
