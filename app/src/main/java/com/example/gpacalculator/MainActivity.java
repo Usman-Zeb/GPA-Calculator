@@ -1,6 +1,8 @@
 package com.example.gpacalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements ListAdapter.OnLis
         RecyclerView recyclerView = findViewById(R.id.course_list);
         calculate = findViewById(R.id.calcbtn);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(listAdapter);
-
         add_course_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,4 +130,24 @@ public class MainActivity extends AppCompatActivity implements ListAdapter.OnLis
 
 
     }
+
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            listAdapter.remove_course(1);
+            EditText course = viewHolder.itemView.findViewById(R.id.course_name_editText);
+            EditText grade = viewHolder.itemView.findViewById(R.id.grade_received_editText);
+            EditText credit = viewHolder.itemView.findViewById(R.id.credit_hours_editText);
+            course.setText("");
+            grade.setText("");
+            credit.setText("");
+            listAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+
+        }
+    };
 }

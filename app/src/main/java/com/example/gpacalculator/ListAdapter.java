@@ -24,6 +24,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         total_courses+=course;
 
     }
+    public  void remove_course(int course)
+    {
+        total_courses-=course;
+    }
+
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,7 +43,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-
 
     }
 
@@ -70,6 +74,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             onListListener.onListClick(getAdapterPosition());
             total_courses--;
 
+            course_name.setText("");
+            credit_hours.setText("");
+            grade_received.setText("");
+
             notifyItemChanged(getAdapterPosition());
             notifyItemRemoved(getAdapterPosition());
             return true;
@@ -79,4 +87,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     public interface OnListListener{
         void onListClick(int position);
     }
+
+
 }
