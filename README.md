@@ -1,4 +1,4 @@
-# GPA-Calculator
+# GPA Calculator
 A simple college GPA calculator developed in native Android. The application currently supports only unweighted grade points, but may add that in the future along with adding semesters.
 
 
