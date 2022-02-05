@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_centerHorizontal="true"
-    android:weightSum="3.6"
+    android:weightSum="1"
     android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,13 +14,16 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/course_name_input_layout"
         android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:maxWidth="50dp"
         android:layout_margin="4dp"
         android:layout_gravity="center"
         android:hint="@string/course_name"
-        android:layout_weight="3">
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:inputType="text|textLongMessage"
 
             android:id="@+id/course_name_editText"
             android:layout_height="match_parent"
@@ -31,9 +34,10 @@
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/grade"
+            android:layout_weight="0.25"
             android:layout_gravity="center"
             android:layout_margin="4dp"
-            android:layout_weight="0.4"
+
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -41,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/grade_received_editText"
                 android:inputType="textCapCharacters"
+                android:gravity="center"
                 android:maxLength="2"
                  />
 
@@ -50,9 +55,10 @@
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/ch"
-        android:layout_gravity="center"
-        android:layout_margin="4dp"
-            android:layout_weight="0.2"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+        android:layout_weight="0.05"
+
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -60,6 +66,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/credit_hours_editText"
                 android:inputType="number"
+                android:gravity="center"
                 android:maxLength="1"
                  />
         </com.google.android.material.textfield.TextInputLayout>

@@ -2,6 +2,7 @@ package com.example.gpacalculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements ListAdapter.OnListListener {
@@ -24,8 +26,12 @@ public class MainActivity extends AppCompatActivity implements ListAdapter.OnLis
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView heading = findViewById(R.id.gpacalculatorheading);
+
+        heading.setTypeface(ResourcesCompat.getFont(this, R.font.roboto));
 
         listAdapter = new ListAdapter(total_courses, this);
 
@@ -113,7 +119,14 @@ public class MainActivity extends AppCompatActivity implements ListAdapter.OnLis
                 }
                 double sgpa = total_grade_points/total_ch;
                 Log.d("GPA is", String.valueOf(sgpa));
-                Toast.makeText(getApplicationContext(), String.format("GPA is:\n %.2f",sgpa), Toast.LENGTH_LONG).show();
+
+                Calculate_Dialog calculate_dialog = new Calculate_Dialog();
+                Bundle bundle = new Bundle();
+                bundle.putString("result", String.format("%.2f",sgpa));
+                calculate_dialog.setArguments(bundle);
+                calculate_dialog.show(getSupportFragmentManager(), "Result");
+
+                //Toast.makeText(getApplicationContext(), String.format("GPA is:\n %.2f",sgpa), Toast.LENGTH_LONG).show();
                 total_ch=0;
                 total_grade_points=0;
             }
